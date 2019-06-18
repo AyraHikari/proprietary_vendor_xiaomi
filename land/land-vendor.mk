@@ -993,6 +993,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/land/proprietary/etc/cne/SwimConfig.xml:system/etc/cne/SwimConfig.xml \
     vendor/xiaomi/land/proprietary/etc/cne/andsfCne.xml:system/etc/cne/andsfCne.xml \
+    vendor/xiaomi/land/proprietary/bin/wfdservice:system/bin/wfdservice \
+    vendor/xiaomi/land/proprietary/etc/init/wfdservice.rc:system/etc/init/wfdservice.rc \
     vendor/xiaomi/land/proprietary/etc/permissions/audiosphere.xml:system/etc/permissions/audiosphere.xml \
     vendor/xiaomi/land/proprietary/etc/permissions/cneapiclient.xml:system/etc/permissions/cneapiclient.xml \
     vendor/xiaomi/land/proprietary/etc/permissions/com.qti.location.sdk.xml:system/etc/permissions/com.qti.location.sdk.xml \
@@ -1006,6 +1008,8 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/land/proprietary/etc/permissions/qti_libpermissions.xml:system/etc/permissions/qti_libpermissions.xml \
     vendor/xiaomi/land/proprietary/etc/permissions/qti_permissions.xml:system/etc/permissions/qti_permissions.xml \
     vendor/xiaomi/land/proprietary/etc/permissions/telephonyservice.xml:system/etc/permissions/telephonyservice.xml \
+    vendor/xiaomi/land/proprietary/etc/wfdconfig.xml:system/etc/wfdconfig.xml \
+    vendor/xiaomi/land/proprietary/etc/wfdconfigsink.xml:system/etc/wfdconfigsink.xml \
     vendor/xiaomi/land/proprietary/framework/QtiTelephonyServicelibrary.jar:system/framework/QtiTelephonyServicelibrary.jar \
     vendor/xiaomi/land/proprietary/framework/audiosphere.jar:system/framework/audiosphere.jar \
     vendor/xiaomi/land/proprietary/framework/com.qti.location.sdk.jar:system/framework/com.qti.location.sdk.jar \
@@ -1028,6 +1032,23 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/land/proprietary/lib/libqti_performance.so:system/lib/libqti_performance.so \
     vendor/xiaomi/land/proprietary/lib/librcc.so:system/lib/librcc.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libsd_sdk_display.so:$(TARGET_COPY_OUT_VENDOR)/lib/libsd_sdk_display.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdavenhancements.so:system/lib/libwfdavenhancements.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdclient.so:system/lib/libwfdclient.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdcodecv4l2.so:system/lib/libwfdcodecv4l2.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdcommonutils.so:system/lib/libwfdcommonutils.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdconfigutils.so:system/lib/libwfdconfigutils.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdmminterface.so:system/lib/libwfdmminterface.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdmmsink.so:system/lib/libwfdmmsink.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdmmsrc.so:system/lib/libwfdmmsrc.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdnative.so:system/lib/libwfdnative.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdrtsp.so:system/lib/libwfdrtsp.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdservice.so:system/lib/libwfdservice.so \
+    vendor/xiaomi/land/proprietary/lib/libwfdsm.so:system/lib/libwfdsm.so \
+    vendor/xiaomi/land/proprietary/lib/libwfduibcinterface.so:system/lib/libwfduibcinterface.so \
+    vendor/xiaomi/land/proprietary/lib/libwfduibcsink.so:system/lib/libwfduibcsink.so \
+    vendor/xiaomi/land/proprietary/lib/libwfduibcsinkinterface.so:system/lib/libwfduibcsinkinterface.so \
+    vendor/xiaomi/land/proprietary/lib/libwfduibcsrc.so:system/lib/libwfduibcsrc.so \
+    vendor/xiaomi/land/proprietary/lib/libwfduibcsrcinterface.so:system/lib/libwfduibcsrcinterface.so \
     vendor/xiaomi/land/proprietary/lib/vendor.display.postproc@1.0.so:system/lib/vendor.display.postproc@1.0.so \
     vendor/xiaomi/land/proprietary/lib/vendor.qti.hardware.data.latency@1.0.so:system/lib/vendor.qti.hardware.data.latency@1.0.so \
     vendor/xiaomi/land/proprietary/lib/vendor.qti.hardware.perf@1.0.so:system/lib/vendor.qti.hardware.perf@1.0.so \
@@ -1050,6 +1071,8 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/land/proprietary/lib64/libqti-perfd-client_system.so:system/lib64/libqti-perfd-client_system.so \
     vendor/xiaomi/land/proprietary/lib64/libqti_performance.so:system/lib64/libqti_performance.so \
     vendor/xiaomi/land/proprietary/lib64/librcc.so:system/lib64/librcc.so \
+    vendor/xiaomi/land/proprietary/lib64/libwfdclient.so:system/lib64/libwfdclient.so \
+    vendor/xiaomi/land/proprietary/lib64/libwfdnative.so:system/lib64/libwfdnative.so \
     vendor/xiaomi/land/proprietary/vendor/lib64/libsd_sdk_display.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsd_sdk_display.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libsdm-disp-vndapis.so:$(TARGET_COPY_OUT_VENDOR)/lib/libsdm-disp-vndapis.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libsdm-color.so:$(TARGET_COPY_OUT_VENDOR)/lib/libsdm-color.so \
@@ -1280,6 +1303,11 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/land/proprietary/vendor/lib/libtinyxml2_1.so:$(TARGET_COPY_OUT_VENDOR)/lib/libtinyxml2_1.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libvpplibrary.so:$(TARGET_COPY_OUT_VENDOR)/lib/libvpplibrary.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libvqzip.so:$(TARGET_COPY_OUT_VENDOR)/lib/libvqzip.so \
+    vendor/xiaomi/land/proprietary/vendor/lib/libwfdcommonutils_proprietary.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdcommonutils_proprietary.so \
+    vendor/xiaomi/land/proprietary/vendor/lib/libwfdhaldsmanager.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdhaldsmanager.so \
+    vendor/xiaomi/land/proprietary/vendor/lib/libwfdhdcpcp.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdhdcpcp.so \
+    vendor/xiaomi/land/proprietary/vendor/lib/libwfdmmservice.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdmmservice.so \
+    vendor/xiaomi/land/proprietary/vendor/lib/libwfdmodulehdcpsession.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdmodulehdcpsession.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libwms.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwms.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libwqe.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwqe.so \
     vendor/xiaomi/land/proprietary/vendor/lib/libwvhidl.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwvhidl.so \
@@ -1550,6 +1578,7 @@ PRODUCT_PACKAGES += \
     imssettings \
     uceShimService \
     CNEService \
+    WfdService \
     com.qualcomm.location \
     qcrilmsgtunnel \
     TimeService \
@@ -1558,4 +1587,5 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne.api-V1.0-java \
     com.quicinc.cne \
     vendor.qti.hardware.alarm-V1.0-java \
+    WfdCommon \
     vendor.qti.hardware.sensorscalibrate-V1.0-java
